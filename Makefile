@@ -1,18 +1,15 @@
 
 NAME = so_long
 
-# Directories
-SRC_DIR = src
-OBJ_DIR = obj
-MLX_DIR = mlx
-GNL_DIR = gnl
-INCL_DIR = includes
 
-# Source files, object files and headers (includes)
-SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES)) $(GNL)
-OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
-INCLS = -I./$(INCL_DIR) -I./$(GNL_DIR)
-SRC_FILES = \
+# Source files --------------------------------------- #
+# ---------------------------------------------------- #
+
+SRCS = $(SRC_FILES) $(SRC_GNL_FILES)
+
+SRC_DIR = src
+SRC_FILES = $(addprefix $(SRC_DIR)/, $(SRC_CFILES))
+SRC_CFILES = \
 		so_long.c \
 		read_map.c \
 		check_map.c \
@@ -20,34 +17,35 @@ SRC_FILES = \
 		load_graphics.c \
 		manage_errors.c \
 
-# Get next line
-GNL =	$(GNL_DIR)/get_next_line.c \
-		$(GNL_DIR)/get_next_line_utils.c \
+SRC_GNL_DIR = $(SRC_DIR)/gnl
+SRC_GNL_FILES = $(addprefix $(SRC_GNL_DIR)/, $(SRC_GNL_CFILES))
+SRC_GNL_CFILES = \
+		get_next_line.c \
+		get_next_line_utils.c \
 
-# Compiler, flags and library
+MLX_DIR = $(SRC_DIR)/mlx
+
+# Object files --------------------------------------- #
+# ---------------------------------------------------- #
+OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
+OBJ_DIR = build
+OBJ_GNL_DIR = $(OBJ_DIR)/gnl
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-LIBRARY = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+LDFLAGS := -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+
+INCL_DIR := includes
 
 # General Rules
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C $(MLX_DIR)/
-	$(CC) $(CFLAGS) $(LIBRARY) -o $(NAME) $(OBJS)
+	$(MAKE) -C $(MLX_DIR)
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(INCLS) -c -o $@ $<
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_GNL_DIR)
+	$(CC) $(CFLAGS) -I./$(INCL_DIR) -c $< -o $@
 
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-
-clean:
-	rm -rf $(OBJ_DIR)
-
-fclean: clean
-	rm -f $(NAME)
-
-re: fclean all
-
-.PHONY: all clean fclean re
+$(OBJ_GNL_DIR):
+	mkdir -p $(OBJ_GNL_DIR)
