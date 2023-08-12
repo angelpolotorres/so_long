@@ -32,8 +32,8 @@ OBJ_DIR = build
 OBJ_GNL_DIR = $(OBJ_DIR)/gnl
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-LDFLAGS := -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+LDFLAGS := -L./$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 INCL_DIR := includes
 
@@ -44,8 +44,19 @@ $(NAME): $(OBJS)
 	$(MAKE) -C $(MLX_DIR)
 	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_GNL_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(OBJ_GNL_DIR) 
 	$(CC) $(CFLAGS) -I./$(INCL_DIR) -c $< -o $@
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 $(OBJ_GNL_DIR):
 	mkdir -p $(OBJ_GNL_DIR)
+
+clean:
+	rm -rf $(OBJ_DIR)
+
+fclean: clean
+	rm -f $(NAME)
+
+.PHONY: all clean fclean re
