@@ -6,7 +6,7 @@
 /*   By: apolo-to <apolo-to@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:43:08 by apolo-to          #+#    #+#             */
-/*   Updated: 2023/08/10 16:08:42 by apolo-to         ###   ########.fr       */
+/*   Updated: 2023/08/12 16:55:30 by apolo-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static void	ft_load_xpm_to_game(t_game *game)
 	int	width;
 	int	height;
 
-	game->wall_img = mlx_xpm_file_to_image(game->mlx_ptr, "imgs/wall.xpm", &width, &height);
-	game->floor_img = mlx_xpm_file_to_image(game->mlx_ptr, "imgs/floor.xpm", &width, &height);
-	game->collectable_img = mlx_xpm_file_to_image(game->mlx_ptr, "imgs/point.xpm", &width, &height);
-	game->player_img = mlx_xpm_file_to_image(game->mlx_ptr, "imgs/player.xpm", &width, &height);
-	game->exit_img = mlx_xpm_file_to_image(game->mlx_ptr, "imgs/exit.xpm", &width, &height);
+	game->wall_img = mlx_xpm_file_to_image(game->mlx_ptr, "data/imgs/wall.xpm", &width, &height);
+	game->floor_img = mlx_xpm_file_to_image(game->mlx_ptr, "data/imgs/floor.xpm", &width, &height);
+	game->collectable_img = mlx_xpm_file_to_image(game->mlx_ptr, "data/imgs/point.xpm", &width, &height);
+	game->player_img = mlx_xpm_file_to_image(game->mlx_ptr, "data/imgs/player.xpm", &width, &height);
+	game->exit_img = mlx_xpm_file_to_image(game->mlx_ptr, "data/imgs/exit.xpm", &width, &height);
 }
 
 static void	ft_print_map_with_graphics(t_game *game)

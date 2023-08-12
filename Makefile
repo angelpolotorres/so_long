@@ -3,12 +3,12 @@ NAME = so_long
 
 # Directories
 SRC_DIR = src
-OBJ_DIR = obj
+OBJ_DIR = build
 MLX_DIR = mlx
 GNL_DIR = gnl
 INCL_DIR = includes
 
-# Source files, object files and headers (includes)
+# Source files, buildect files and headers (includes)
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES)) $(GNL)
 OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 INCLS = -I./$(INCL_DIR) -I./$(GNL_DIR)
