@@ -1,4 +1,5 @@
-NAME = libmlx.a
+
+NOM = libmlx.a
 SRC =	mlx_shaders.c \
 		mlx_xpm.c \
 		mlx_int_str_to_wordtab.c \
@@ -15,14 +16,15 @@ CFLAGS += -O2 -w
 # add to match string put with X11 in size and position
 CFLAGS += -DSTRINGPUTX11
 
-all: $(NAME)
+all: $(NOM)
 
-$(NAME): $(OBJ)
-	ar -r $(NAME) $(OBJ)
-	ranlib $(NAME)
+$(NOM):	$(OBJ)
+	ar -r $(NOM) $(OBJ)
+	ranlib $(NOM)
+	"Minilibx library compiled"
 
 clean:
-	rm -f $(NAME) $(OBJ) *~
+	rm -f $(NOM) $(OBJ) *~
 	rm -f mlx_app
 
 re: clean all

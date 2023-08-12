@@ -23,7 +23,7 @@ SRC_GNL_CFILES = \
 		get_next_line.c \
 		get_next_line_utils.c \
 
-MLX_DIR = $(SRC_DIR)/mlx
+MLX_DIR = mlx
 
 # Object files --------------------------------------- #
 # ---------------------------------------------------- #
@@ -42,7 +42,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(MAKE) -C $(MLX_DIR)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $(NAME) $(OBJS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(OBJ_GNL_DIR) 
 	$(CC) $(CFLAGS) -I./$(INCL_DIR) -c $< -o $@
