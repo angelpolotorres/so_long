@@ -6,7 +6,7 @@
 /*   By: apolo-to <apolo-to@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 13:18:16 by apolo-to          #+#    #+#             */
-/*   Updated: 2023/08/10 16:09:13 by apolo-to         ###   ########.fr       */
+/*   Updated: 2023/08/13 08:59:31 by apolo-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ static void	ft_check_path(t_game *game, int row, int col)
 void	ft_check_valid_path(t_game *game)
 {
 	ft_check_path(game, game->player_row, game->player_col);
-	if (game->collectable_count == game->path_collectable_count && game->path_exit_count)
+	if (game->collectable_count
+		== game->path_collectable_count && game->path_exit_count)
 		return ;
 	else
 		ft_show_error(game, 6);

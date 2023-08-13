@@ -21,7 +21,6 @@ all: $(NOM)
 $(NOM):	$(OBJ)
 	ar -r $(NOM) $(OBJ)
 	ranlib $(NOM)
-	"Minilibx library compiled"
 
 clean:
 	rm -f $(NOM) $(OBJ) *~
