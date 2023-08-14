@@ -6,7 +6,7 @@
 /*   By: apolo-to <apolo-to@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 10:50:52 by apolo-to          #+#    #+#             */
-/*   Updated: 2023/08/10 16:09:21 by apolo-to         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:43:50 by apolo-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,5 @@ int	ft_check_map_errors(t_game *game, char **argv)
 	ft_check_elements_recount(game);
 	ft_check_valid_path(game);
 	ft_read_map(game, argv);
-	printf("todo ok - (quitar)\n");
 	return (1);
 }

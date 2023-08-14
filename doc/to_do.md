@@ -67,10 +67,34 @@
 - [x] Ejecutamos exit con 0 -->
 
 ## Control con teclas
-- [ ] La funcion recibe el comando (int) y la estructura de juego (t_game)
-- [ ] Si el comando es 53, salir, si el comando es 13 o 1 ejecutamos la funcion de teclas w y s
-- [ ] Si el comando es 0 o 2 ejcutamos la funciona de las teclas a y d.
-- [ ] Si estas funciones me devuelven 1 ejecuto la funcion de añadir graficos al mapa otra vez para actualizar el mapa.
+- [x] La funcion recibe el comando (int) y la estructura de juego (t_game)
+- [x] Si el comando es 53, salir, si el comando es 13 o 1 ejecutamos la funcion de teclas w y s
+- [x] Si el comando es 0 o 2 ejcutamos la funciona de las teclas a y d.
+- [x] Si estas funciones me devuelven 1 ejecuto la funcion de añadir graficos al mapa otra vez para actualizar el mapa.
+- [x] Devuelvo 1 al final de la función por que realmente no ha habido ingun error.
 
 ----- Funcion w y s
+- [x] Creo  2 variables enteras y copio las posiciones inciales del player de la estructura de game.
+- [x] restamos 1 a la posicion y (row)
+- [x] si el mapa con las nuevas posiciones x e y es igual a 1 devolvemos 0
+- [x] si no, ejecutamos la funcion de movimiento correcto pasandole las cordenadas y el game
+- [x] si la funcion movimiento correcto diera error devolvemos 0
+- [x] el hueco del mapa donde estaba el player lo rellenamos cno un 0
 
+----- Función movimiento correcto
+- [x] Si la posicion en el mapa es 'E' evaluamos
+  - [x] Si colleccionables no es mayor que 0 devolvemos 0
+  - [x] Imprimirmos mensaje de "enhorabuena has ganado"
+  - [x] Ejecutamos la función salida del mapa
+- [x] Si la posicion en el mapa es '0'
+  - [x] Rellenamos esa posición del map con el player
+  - [x] Actualizamos las posicion x del player
+  - [x] Atuañizamos la posicion y del player
+  - [x] Sumamos 1 al contador de movimientos
+- [x] Si la posicón en el mapa es 'C'
+  - [x] Rellenaos esa posición del mapa con el player
+  - [x] actualizamos las cordenadas x del player
+  - [x] actualizamos las coodenadas y del player
+  - [x] restamos 1 a collectables
+  - [x] sumamos 1 al contador de movimientos
+- [x] retornamos 1
