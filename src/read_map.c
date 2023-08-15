@@ -6,7 +6,7 @@
 /*   By: apolo-to <apolo-to@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 10:09:16 by apolo-to          #+#    #+#             */
-/*   Updated: 2023/08/10 16:08:24 by apolo-to         ###   ########.fr       */
+/*   Updated: 2023/08/15 12:09:42 by apolo-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,38 @@
 #include "get_next_line.h"
 
 /**
+ * This ft receives the name of the file .ber.
+ * @param char* file	- The name file.
+ * @return int			- 1(ok), 0(error).
+*/
+int	ft_check_file(char *file)
+{
+	int	i;
+
+	i = 0;
+	while (file[i])
+		i++;
+	i = i - 4;
+	while (file[i])
+	{
+		if (file[i] == '.' || file[i] == 'b'
+			|| file[i] == 'e' || file[i] == 'r')
+			i++;
+		else
+		{
+			printf("Error: Archivo no válido. Adjunte un archivo .ber\n");
+			return (0);
+		}
+	}
+	return (1);
+}
+
+/**
  * This ft receives a ptr and fills the memory with c the size given by length.
- * @param void* Pointer of the destiny to fill.
- * @param int Value to fill the memory.
- * @param size_t Size to fill with the int.
- * @return A pointer to memory filled.
+ * @param void* dest	- Pointer of the destiny to fill.
+ * @param int c 		- Value to fill the memory.
+ * @param size_t length	- Size to fill with the int.
+ * @return void*		- A pointer to memory filled.
 */
 void	*ft_memset(void *dest, int c, size_t length)
 {
@@ -35,9 +62,9 @@ void	*ft_memset(void *dest, int c, size_t length)
 
 /**
  * This ft transform add a new line to game->map using a temporary var.
- * @param t_game* Game structure.
- * @param char* The new line to add.
- * @return (int) 1(ok) or 0(error).
+ * @param t_game* game	- Game structure.
+ * @param char* line	- The new line to add.
+ * @return int 			- 1(ok), 0(error).
 */
 static int	ft_save_line_map(t_game *game, char *line)
 {
@@ -65,8 +92,8 @@ static int	ft_save_line_map(t_game *game, char *line)
 /**
  * This ft recive a map line and count the line width
  * If the end of the line has '\n' doesn`t count this caracter.
- * @param char* Pointer to the map line
- * @return (int) Line width
+ * @param char* map_line	- Pointer to the map line
+ * @return int 				- Line width
 */
 static int	ft_count_map_cols(char *map_line)
 {
@@ -82,9 +109,9 @@ static int	ft_count_map_cols(char *map_line)
 
 /**
  * This ft read the map from input and copy to game structure.
- * @param t_game* Pointer to game structure
- * @param char** Pointer to arguments value recibed from console.
- * @return (1)ok, 0(error).
+ * @param t_game* game	- Pointer to game structure
+ * @param char** argv	- Pointer to arguments value recibed from console.
+ * @return int			- (1)ok, 0(error).
 */
 int	ft_read_map(t_game *game, char **argv)
 {

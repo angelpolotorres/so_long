@@ -17,6 +17,7 @@ SRC_CFILES = \
 		load_graphics.c \
 		manage_errors.c \
 		controls.c \
+		show_score.c \
 
 SRC_GNL_DIR = $(SRC_DIR)/gnl
 SRC_GNL_FILES = $(addprefix $(SRC_GNL_DIR)/, $(SRC_GNL_CFILES))

@@ -6,7 +6,7 @@
 /*   By: apolo-to <apolo-to@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:43:08 by apolo-to          #+#    #+#             */
-/*   Updated: 2023/08/13 09:24:10 by apolo-to         ###   ########.fr       */
+/*   Updated: 2023/08/15 12:01:31 by apolo-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /**
  * This ft load the xpm files to game structure using mlx library
- * @param t_game* Game structure
+ * @param t_game* game	- Game structure
  * @return void
 */
 static void	ft_load_xpm_to_game(t_game *game)
@@ -35,6 +35,13 @@ static void	ft_load_xpm_to_game(t_game *game)
 			"data/imgs/exit.xpm", &width, &height);
 }
 
+/**
+ * This ft print the images in the windows depends on the map letter.
+ * @param int row		- Row map position
+ * @param int col		- Col map position
+ * @param t_game* game	- Game structure
+ * @return void
+*/
 static void	ft_choose_graphic_to_print(int row, int col, t_game *game)
 {
 	if (game->map[row][col] == '1')
@@ -54,6 +61,11 @@ static void	ft_choose_graphic_to_print(int row, int col, t_game *game)
 			game->win_ptr, game->exit_img, col * 50, row * 50);
 }
 
+/**
+ * This ft runs over the entire map and calls another ft to print the pieces.
+ * @param t_game* game	- Game structure
+ * @return void
+*/
 static void	ft_print_graphics_on_map(t_game *game)
 {
 	int	row;
@@ -72,6 +84,11 @@ static void	ft_print_graphics_on_map(t_game *game)
 	}
 }
 
+/**
+ * This ft execute all fts to print the map.
+ * @param t_game* game	- Game structure
+ * @return void
+*/
 void	ft_print_graphics_in_window(t_game *game)
 {
 	ft_load_xpm_to_game(game);

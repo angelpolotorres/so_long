@@ -6,7 +6,7 @@
 /*   By: apolo-to <apolo-to@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 13:18:16 by apolo-to          #+#    #+#             */
-/*   Updated: 2023/08/13 08:59:31 by apolo-to         ###   ########.fr       */
+/*   Updated: 2023/08/15 12:03:14 by apolo-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 /**
  * This ft checks all map position recounting elements to find a valid path.
  * This ft is a recursive function.
- * @param t_game* The game structure;
- * @param int row - Initially the player row
- * @param int col - Initially the player column
+ * @param t_game* game	- The game structure;
+ * @param int row 		- Initially the player row
+ * @param int col 		- Initially the player column
  * @return void
 */
 static void	ft_check_path(t_game *game, int row, int col)
@@ -42,7 +42,7 @@ static void	ft_check_path(t_game *game, int row, int col)
 
 /**
  * This ft checks if exists a valid path in the map calling a recursive ft.
- * @param t_game* The game structure;
+ * @param t_game* game	- The game structure;
  * @return void
 */
 void	ft_check_valid_path(t_game *game)

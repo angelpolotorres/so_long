@@ -6,7 +6,7 @@
 /*   By: apolo-to <apolo-to@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 10:50:52 by apolo-to          #+#    #+#             */
-/*   Updated: 2023/08/14 13:43:50 by apolo-to         ###   ########.fr       */
+/*   Updated: 2023/08/15 12:02:51 by apolo-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /**
  * This ft check if the external walls characters are '1'
- * @param t_game* The game structure;
+ * @param t_game* game	- The game structure;
  * @return void
 */
 static void	ft_check_map_borders(t_game *game)
@@ -39,9 +39,9 @@ static void	ft_check_map_borders(t_game *game)
 
 /**
  * This ft count the 'P', 'E' and 'C' elements. And set the player coordanates.
- * @param t_game* The game structure;
- * @param int Row position.
- * @param int Column position.
+ * @param t_game* game	- The game structure;
+ * @param int row		- Row position.
+ * @param int col		- Column position.
  * @return void
 */
 static void	ft_count_elements(t_game *game, int row, int col)
@@ -62,7 +62,7 @@ static void	ft_count_elements(t_game *game, int row, int col)
  * This ft check if characters map are '1','0','P','E' or 'C'.
  * If the character is 'P','E' or 'C' 
  * increment the variable inside the game structure.
- * @param t_game* The game structure structure;
+ * @param t_game* game	- The game structure structure;
  * @return void
 */
 static void	ft_check_map_chars(t_game *game)
@@ -91,7 +91,7 @@ static void	ft_check_map_chars(t_game *game)
 
 /**
  * This ft check the recount of 'P', 'E' and 'C' elements.
- * @param t_game* The game structure;
+ * @param t_game* game	- The game structure;
  * @return void
 */
 static void	ft_check_elements_recount(t_game *game)
@@ -106,9 +106,9 @@ static void	ft_check_elements_recount(t_game *game)
 
 /**
  * This ft execute all neccesary map checkers .
- * @param t_game* The game structure;
- * @param char** Pointer to arguments value recibed from console.
- * @return void
+ * @param t_game* game	- The game structure;
+ * @param char** argv	- Pointer to arguments value recibed from console.
+ * @return int			- 1(ok)
 */
 int	ft_check_map_errors(t_game *game, char **argv)
 {
