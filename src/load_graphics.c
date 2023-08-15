@@ -6,7 +6,7 @@
 /*   By: apolo-to <apolo-to@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:43:08 by apolo-to          #+#    #+#             */
-/*   Updated: 2023/08/15 12:01:31 by apolo-to         ###   ########.fr       */
+/*   Updated: 2023/08/15 15:38:22 by apolo-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_load_xpm_to_game(t_game *game)
 	game->floor_img = mlx_xpm_file_to_image(game->mlx_ptr,
 			"data/imgs/floor.xpm", &width, &height);
 	game->collectable_img = mlx_xpm_file_to_image(game->mlx_ptr,
-			"data/imgs/point.xpm", &width, &height);
+			"data/imgs/collectable.xpm", &width, &height);
 	game->player_img = mlx_xpm_file_to_image(game->mlx_ptr,
 			"data/imgs/player.xpm", &width, &height);
 	game->exit_img = mlx_xpm_file_to_image(game->mlx_ptr,
