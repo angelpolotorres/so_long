@@ -6,12 +6,11 @@
 /*   By: apolo-to <apolo-to@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 10:09:56 by apolo-to          #+#    #+#             */
-/*   Updated: 2023/08/15 13:26:36 by apolo-to         ###   ########.fr       */
+/*   Updated: 2023/08/16 10:24:31 by apolo-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "mlx.h"
 
 /**
  * This ft check the type of movement according to the map character
@@ -93,9 +92,7 @@ static int	ft_move(int key, t_game *game)
 int	ft_controls(int key, t_game *game)
 {
 	int		works;
-	char	*str;
 
-	str = "Movimientos:";
 	works = 0;
 	if (key == 53 || key == 12)
 		ft_exit(game);
@@ -104,8 +101,5 @@ int	ft_controls(int key, t_game *game)
 		works = ft_move(key, game);
 	if (works)
 		ft_print_graphics_in_window(game);
-	mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 20, 0x4d4282, str);
-	mlx_string_put(game->mlx_ptr, game->win_ptr, 98, 20,
-		0x4d4282, ft_itoa(game->movements));
 	return (1);
 }

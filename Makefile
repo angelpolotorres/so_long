@@ -17,7 +17,6 @@ SRC_CFILES = \
 		load_graphics.c \
 		manage_errors.c \
 		controls.c \
-		show_score.c \
 
 SRC_GNL_DIR = $(SRC_DIR)/gnl
 SRC_GNL_FILES = $(addprefix $(SRC_GNL_DIR)/, $(SRC_GNL_CFILES))
@@ -37,7 +36,7 @@ OBJ_GNL_DIR = $(OBJ_DIR)/gnl
 # Compiler options ------------------------------------------- #
 # ------------------------------------------------------------ #
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -g -Wall -Wextra -Werror -fsanitize=address
 LDFLAGS := -L./$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 INCL_DIR := includes
 
