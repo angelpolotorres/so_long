@@ -6,33 +6,30 @@
 /*   By: apolo-to <apolo-to@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 10:32:20 by apolo-to          #+#    #+#             */
-/*   Updated: 2023/08/15 12:56:37 by apolo-to         ###   ########.fr       */
+/*   Updated: 2023/08/16 14:25:20 by apolo-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <math.h>
+# include <fcntl.h>
 
 typedef struct s_game
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
 	int		fd;
-	
 	char	**map;
 	int		map_rows;
 	int		map_cols;
-	
 	void	*player_img;
 	void	*wall_img;
 	void	*floor_img;
 	void	*collectable_img;
 	void	*exit_img;
-	
 	int		collectable_count;
 	int		player_count;
 	int		player_row;
